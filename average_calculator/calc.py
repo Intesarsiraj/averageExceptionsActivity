@@ -12,15 +12,21 @@ def calculator():
         user_input = input("Enter an integer or 'compute': ")
         
         if user_input == "compute":
-            print_average(numbers)
-            finished = True
-        
+            try:
+                print_average(numbers)
+                finished = True
+            except:
+                raise ValueError("You must enter at least one number before calculating an average") 
+                
         else:
             try:
                 number = int(user_input)
             except ValueError:
                 print("Invalid input. Input must be an integer or 'compute'")
                 continue
+   
+            
+
 
             numbers.append(number)
 
